@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
+
+:root {
+  font-family: "Poppins", sans-serif;
+
+  color-scheme: light dark;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #ffffff;
+}
+
+body {
+  padding: 10%;
+}
+
+/* Checkbox */
+.check__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.check__controls div {
+  display: grid;
+  gap: 1rem;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container {
+  width: fit-content;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  cursor: pointer;
+  font-size: 1.5rem;
+  user-select: none;
+}
+
+.container p {
+  font-size: 1rem;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  --clr: #F21313;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.1em;
+  width: 1.1em;
+  background-color: #e8e6e6;
+  border-radius: 50%;
+  transition: 300ms;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked~.checkmark {
+  background-color: var(--clr);
+  border-radius: .5rem;
+  animation: pulse 500ms ease-in-out;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 0.40em;
+  top: 0.2em;
+  width: 0.17em;
+  height: 0.4em;
+  border: solid #ffffff;
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 #8d0909;
+    rotate: 20deg;
+  }
+
+  50% {
+    rotate: -20deg;
+  }
+
+  75% {
+    box-shadow: 0 0 0 10px #8d090953;
+  }
+
+  100% {
+    box-shadow: 0 0 0 13px #8d09091d;
+    rotate: 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  body {
+    padding: 4% 1% !important;
+  }
+
+  .check__controls {
+    display: grid !important;
+    gap: 1rem !important;
+  }
+
+  .container .checkmark:after {
+    left: 0.40em !important;
+    top: 0.23em !important;
+  }
+}
+
+@media (max-width: 884px) {
+  body {
+    padding: 1% 4% !important;
+  }
+}
+
+@media (max-width: 1280px) {
+  body {
+    padding: 1% 20%;
+  }
+}
